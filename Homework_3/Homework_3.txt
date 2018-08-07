@@ -1,0 +1,50 @@
+# Brian Powell 012362894
+# EE381 - Chaw-Long Chu
+#
+# Homework_3
+#
+# Question_1
+# Please Use:
+#
+# (1) One order equation (y=ax+b) and
+# (2) Third order equation (y=ax^3+bx^2+cx+d) and
+# (3) Second order equation (y=a+bx+cx^2) using spread sheet to manually calculate the coefficients of (a,b, and c) to fit the follow data set: x=(0,1,2,3,4,5,6,7,8) 
+#     and y=(0,0.8,0.9,0.1,-0.8,-1,-1.2,-1.6,-1.9) and plot the original data and 2 fitting results (1st order and 3rd order) on same graph.
+# (4) Finally compare the two least square fitting results of (1) and (2)
+#
+# The (1) and (2) using Python or Matlab to get results the (3) finished by manually calculation
+
+import numpy as np
+import matplotlib.pyplot as plt 
+from scipy.integrate import *
+
+x_data = np.array([0,1,2,3,4,5,6,7,8])
+y_data = np.array([0,0.8,0.9,0.1,-0.8,-1,-1.2,-1.6,-1.9])
+xx = np.linspace(-2,10,1000)
+
+#3 Order Fit
+p3 = np.polyfit(x_data, y_data, 3)
+yy = np.polyval(p3, xx)
+6
+plt.plot(xx, yy, '_',label='3rd Order Fit')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.legend(loc='best')
+
+#1 Order Fit
+p1 = np.polyfit(x_data, y_data, 1)
+yy = np.polyval(p1, xx)
+
+#plt.plot(x_data, y_data,'O', label = 'Data Set')
+plt.plot(xx, yy, ':', label='1st Order Fit')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.legend(loc='best')
+# Print (1) and (2)
+plt.show()
+
+
+print('Coefficients of P3 Fitting:', p3)
+print('Coefficients of P1 Fitting:', p1)
+
+################## End of Part 1 & 2 ################## 

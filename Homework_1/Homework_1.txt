@@ -1,0 +1,87 @@
+# Brian Powell 012362894
+# EE 381 - Dr. Chaw-Long Chu
+# Homework #1
+# 
+# Question 1: A group of boy students has heights (in inches) as (65,67,72.5,71,82,59,62,63.4,66,65,73,71,72)
+# and girl students has heights (in inches) as (58,56.5,54,60,62,59,60.5,61,63,65,66,61.5,62.5). Please use 
+# histogram (bins = 5) to represent these dat ain one graph. Legend, x, y coordinates, and title are needed
+# for the graph.
+#
+
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import numpy as np
+boy = [65,67,72.5,71,82,59,62,63.4,66,65,73,71,72]
+girl = [58,56.5,54,60,62,59,60.5,61,63,65,66,61.5,62.5]
+
+bin_edges = 5
+
+plt.hist([boy, girl], bins=bin_edges, histtype='bar', rwidth=0.8, color=['green','cyan'],
+            label=["Boys", "Girls"])
+
+plt.title("Distrubution of Boys and Girls Height in Inches")
+plt.ylabel("Height (in inches)")
+plt.xlabel("Height Distribution")
+plt.legend()
+plt.show()
+
+################## End one Question 1 ##################
+
+# Brian Powell 012362894
+# EE 381 - Dr. Chaw-Long Chu
+# Homework #1
+#
+# Question 2: If you throw a fair die 10 times, which has six sides marked numbers from 1 to 6, how many times you may
+# have '1'? Find a different throwing number to have the probablility to have '1' to be 1/6 (use random number to work 
+# to prove your answer).
+#
+
+import random
+
+def dice_roll():
+    rollcount = int(input("How many times would you like to roll?"))
+    testcount = 0
+
+    for i in range(0, rollcount):
+        roll_num = random.randint(1,6)
+        if roll_num == 1:
+            testcount += 1
+            print(str(roll_num))
+        else:
+            print(str(roll_num))
+
+    print("You rolled a 1 [", testcount, "] time(s).")
+    ratio = float(testcount / rollcount)
+    print("You're probably ratio is of finding a 1 is: ", ratio) 
+
+def main():
+    game_start = input("Would you like to roll a dice? ")
+    if game_start == "yes":
+        dice_roll()
+    else:
+        print("Exit.")
+
+if __name__ == '__main__':
+    main()
+
+################## End of Question 2 ##################
+
+# Brian Powell 012362894
+# EE 381 - Dr. Chaw-Long Chu
+# Homework #1
+# 
+#Question 3: An ordinary deck of playing cards (52 cards, 4 suits and 13 ranks) is shuffled, and one card is randomly chosen 
+#(all cards are equallyt likely).
+#A. What is the prbability to have a Queen?
+#B. If 2 cards are randomly chosen, what is the probability to have one Queen and one Diamond?
+#
+
+import random
+
+rank = random.choice( ('A','2','3','4','5','6','7','8','9','T','J','Q','K') )
+suit = random.choice( ('c','d','h','s') )
+card = rank + suit
+
+
+################## End of Question 3 ##################
+
